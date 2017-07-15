@@ -9,43 +9,51 @@ namespace BankAccount
     class Saving : Account
     {
         protected double savingBalance;
-        protected double depositAmount;
-        protected double withdrawAmount;
+        protected double savingDepositAmount;
+        protected double savingWithdrawAmount;
 
-        public double DepositAmount { get; set; }
+        public double SavingDepositAmount { get; set; }
         public double SavingBalance { get; set; }
-        public double WithdrawAmount { get; set; }
+        public double SavingWithdrawAmount { get; set; }
 
         public Saving()
         {
             //default constructor
         }
 
-        public Saving(double saveBal, double depositAmount, int saveNum, double withdrawAmount)
+        public Saving(double savBal, double depositAmount, int savNum, double withdrawAmount)
         {
-            this.depositAmount = depositAmount;
-            this.savingBalance = saveBal;
-            this.saveNum = saveNum;
-            this.withdrawAmount = withdrawAmount;
+            this.savingDepositAmount = depositAmount;
+            this.savingBalance = savBal;
+            this.saveNum = savNum;
+            this.savingWithdrawAmount = withdrawAmount;
         }
 
         //Methods
-        public override double GetSaveBalance()
+        public override double GetSaveAddDeposit()
         {
-            savingBalance = depositAmount + savingBalance;
-
+            savingBalance = savingDepositAmount + savingBalance;
             return savingBalance;
         }
 
         public override double SaveAcctWithdraw()
         {
-            savingBalance = savingBalance - withdrawAmount;
+            savingBalance = savingBalance - SavingWithdrawAmount;
             return savingBalance;
         }
-        public override int GetAcctNumber()
+
+        public double SetDepositAmt()
         {
-            return saveNum;
+            savingDepositAmount = SavingDepositAmount;
+            return savingDepositAmount;
         }
+
+        public double SetWithdrawAmt()
+        {
+            savingWithdrawAmount = SavingWithdrawAmount;
+            return savingWithdrawAmount;
+        }
+
         public override void InformationMenuMethod()
         {
             bool menuReturn = false;
@@ -54,12 +62,11 @@ namespace BankAccount
             {
                 Console.WriteLine();
                 Console.WriteLine("\n\n***************************************************************\n\n");
-                Console.WriteLine("              Savings Account Information");
-                Console.WriteLine("Saving account number:  {0}", saveNum);
-                Console.WriteLine("Saving account balance: {0}", savingBalance);
-                Console.WriteLine("Deposit Amount:           {0}", depositAmount);
-                //Console.WriteLine("Customer Phone:        {0}", custPhone);
-                //Console.WriteLine("Customer Email:        {0}", custEmail);
+                Console.WriteLine("              Saving Account Information");
+                Console.WriteLine("Saving account number:    {0}", saveNum);
+                Console.WriteLine("Saving account balance:   {0}", savingBalance);
+                Console.WriteLine("Deposit Amount:           {0}", savingDepositAmount);
+                Console.WriteLine("Withdraw Amount:          {0}", savingWithdrawAmount);
                 Console.WriteLine("\n\n***************************************************************\n\n");
 
                 Console.Write("\n\n\n\n\nPlease hit enter to return to the main menu");
@@ -75,4 +82,3 @@ namespace BankAccount
         }
     }
 }
-

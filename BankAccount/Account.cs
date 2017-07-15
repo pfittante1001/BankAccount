@@ -17,7 +17,9 @@ namespace BankAccount
         protected int accountNumber;
         protected double checkDepositAmt;
         protected double checkSubAmt;
-        
+        protected double saveDepositAmt;
+        protected double saveSubAmt;
+
 
         //Properties
 
@@ -29,6 +31,8 @@ namespace BankAccount
         public int AccountNumber { get; set; }
         public double CheckDepositAmt { get; set; }
         public double CheckSubAmt { get; set; }
+        public double SaveDepositAmt { get; set; }
+        public double SaveSubAmt { get; set; }
 
         //Constructors
 
@@ -37,7 +41,7 @@ namespace BankAccount
             //Default Constructor
         }
 
-        public Account(int checkNumConst, int saveNumConst, string acctTypeConst, double saveAcctbal, double checkAcctbal, int accountNumber, double checkDepAmt, double checkSubAmt)
+        public Account(int checkNumConst, int saveNumConst, string acctTypeConst, double saveAcctbal, double checkAcctbal, int accountNumber, double checkDepAmt, double checkSubAmt, double saveDepAmt, double saveSubAmt)
         {
             this.checkNum = checkNumConst;
             this.saveNum = saveNumConst;
@@ -47,6 +51,8 @@ namespace BankAccount
             this.accountNumber = accountNumber;
             this.checkDepositAmt = checkDepAmt;
             this.checkSubAmt = checkSubAmt;
+            this.saveDepositAmt = saveDepAmt;
+            this.saveSubAmt = saveSubAmt;
         }
 
        //Methods
@@ -64,14 +70,22 @@ namespace BankAccount
         {
             return checkAcctBalance;
         }
-        public virtual double GetSaveBalance()
+        public virtual double GetSaveAddDeposit()
         {
             return saveAcctBalance;
         }
-
+        public virtual double GetSaveSubWithdraw()
+        {
+            return checkSubAmt;
+        }
         public virtual int GetAcctNumber()
         {
             return checkNum;
+        }
+
+        public virtual int GetsaveAcctNumber()
+        {
+            return saveNum;
         }
         public virtual void InformationMenuMethod()
         {
