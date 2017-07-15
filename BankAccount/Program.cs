@@ -55,10 +55,19 @@ namespace BankAccount
                     case 3:
                         Console.Clear();
                         
+                        Checking firstDep = new Checking(400, 100, 111,0);
+                        firstDep.GetAcctNumber();
+                        //firstDep.AcctWithdraw();
+                        firstDep.GetBalance();
+                        firstDep.InformationMenuMethod();
                         break;
                     case 4:
                         Console.Clear();
-                        Console.WriteLine("case four");
+                        Checking firstSav = new Checking(400, 3000, 111, 0);
+                        firstSav.GetAcctNumber();
+                        //firstDep.AcctWithdraw();
+                        firstSav.GetBalance();
+                        firstSav.InformationMenuMethod();
                         break;
                     case 5:
                         Console.Clear();
