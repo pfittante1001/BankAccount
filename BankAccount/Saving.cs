@@ -63,10 +63,10 @@ namespace BankAccount
                 Console.WriteLine();
                 Console.WriteLine("\n\n***************************************************************\n\n");
                 Console.WriteLine("              Saving Account Information");
-                Console.WriteLine("Saving account number:    {0}", saveNum);
-                Console.WriteLine("Saving account balance:   {0}", savingBalance);
-                Console.WriteLine("Deposit Amount:           {0}", savingDepositAmount);
-                Console.WriteLine("Withdraw Amount:          {0}", savingWithdrawAmount);
+                Console.WriteLine("Saving account number:    ${0}", saveNum);
+                Console.WriteLine("Saving account balance:   ${0}", savingBalance);
+                Console.WriteLine("Last Deposit Amount:      ${0}", savingDepositAmount);
+                Console.WriteLine("Last Withdraw Amount:     ${0}", savingWithdrawAmount);
                 Console.WriteLine("\n\n***************************************************************\n\n");
 
                 Console.Write("\n\n\n\n\nPlease hit enter to return to the main menu");

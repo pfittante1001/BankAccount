@@ -62,10 +62,10 @@ namespace BankAccount
                 Console.WriteLine();
                 Console.WriteLine("\n\n***************************************************************\n\n");
                 Console.WriteLine("              Checking Account Information");
-                Console.WriteLine("Checking account number:  {0}", checkNum);
-                Console.WriteLine("Checking account balance: {0}", checkingBalance);
-                Console.WriteLine("Deposit Amount:           {0}", depositAmount);
-                Console.WriteLine("Withdraw Amount:          {0}", withdrawAmount);
+                Console.WriteLine("Checking account number:  ${0}", checkNum);
+                Console.WriteLine("Checking account balance: ${0}", checkingBalance);
+                Console.WriteLine("Last Deposit Amount:      ${0}", depositAmount);
+                Console.WriteLine("Last Withdraw Amount:     ${0}", withdrawAmount);
                 Console.WriteLine("\n\n***************************************************************\n\n");
 
                 Console.Write("\n\n\n\n\nPlease hit enter to return to the main menu");

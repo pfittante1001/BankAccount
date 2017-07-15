@@ -12,23 +12,26 @@ namespace BankAccount
         {
             int checkNum = 10021;
             int saveNum = 10022;
+            int tempParse;
+            int menuSel;
             string firstName = "Pete";
             String lastName = "Fittante";
             string address = "111 Kremlin dr";
             string emailAddress = "yeah@yahoo.com";
             string phone = "696-kidz";
+            string password = "123abc";
+            string username = "pete";
             double checkBal = 1000.00;
             double savingBal = 500.00;
             double checkDep = 0.00;
             double savingDep = 0;
             double savingWD = 0;
             double checkingWD = 0;
-            Dictionary<string, int> account = new Dictionary<string, int>();
+          
             Client client1 = new Client(firstName, lastName, address, emailAddress, phone);
             Checking firstDep = new Checking(checkBal, checkDep, checkNum, checkingWD);
             Saving firstSav = new Saving(savingBal, savingDep, saveNum, savingWD);
-            int tempParse;
-            int menuSel;
+            
             bool exitProgram = false;
             
             while (exitProgram == false)
@@ -138,8 +141,8 @@ namespace BankAccount
                                 string menuSelectStrDbl;
                                 double tryParseDbl;
                                 double menuSelBalDbl = 0.00;
-                                Console.Write("\n\t\tAccount Deposit Menu\n\n");
-                                Console.Write("\n\t\tEnter the amount you would like to deposit into checking\n\n");
+                                Console.Write("\n\t\tChecking Account Deposit Menu\n\n");
+                                Console.Write("\nEnter the amount you would like to deposit into checking: $ ");
                                 menuSelectStrDbl = Console.ReadLine().ToUpper();
                                 while (double.TryParse(menuSelectStrDbl, out tryParseDbl) == false)
                                 {
@@ -155,12 +158,11 @@ namespace BankAccount
                                     }
                                     
                                 }
+                                Console.Clear();
                                 menuSelBalDbl = double.Parse(menuSelectStrDbl);
-                                checkDep = menuSelBalDbl;
-                                Console.Write(checkDep);
+                                checkDep = menuSelBalDbl;  
                                 firstDep.DepositAmount = checkDep;
-                                firstDep.SetDepositAmt();
-                                Console.Write(checkDep);                        
+                                firstDep.SetDepositAmt();                                                      
                                 firstDep.GetCheckAddDeposit();
                                 firstDep.InformationMenuMethod();
 
@@ -170,8 +172,8 @@ namespace BankAccount
                                 string menuSelectStrDblSav;
                                 double tryParseDblSav;
                                 double menuSelBalDblSav = 0.00;
-                                Console.Write("\n\t\tAccount Deposit Menu\n\n");
-                                Console.Write("\n\t\tEnter the amount you would like to deposit into savings\n\n");
+                                Console.Write("\n\t\tSaving Account Deposit Menu\n\n");
+                                Console.Write("\nEnter the amount you would like to deposit into savings: $ ");
                                 menuSelectStrDblSav = Console.ReadLine().ToUpper();
                                 while (double.TryParse(menuSelectStrDblSav, out tryParseDblSav) == false)
                                 {
@@ -187,12 +189,11 @@ namespace BankAccount
                                     }
                                     
                                 }
+                                Console.Clear();
                                 menuSelBalDblSav = double.Parse(menuSelectStrDblSav);
-                                savingDep = menuSelBalDblSav;
-                                
+                                savingDep = menuSelBalDblSav;                                
                                 firstSav.SavingDepositAmount = savingDep;
-                                firstSav.SetDepositAmt();
-                                                 
+                                firstSav.SetDepositAmt();                                                 
                                 firstSav.GetSaveAddDeposit();
                                 firstSav.InformationMenuMethod();
                                 break;
@@ -236,7 +237,7 @@ namespace BankAccount
                                 double tryParseDbl;
                                 double menuSelBalDbl = 0.00;
                                 Console.Write("\n\t\tAccount withdraw Menu\n\n");
-                                Console.Write("\nEnter the amount you would like to withdraw from checking:  ");
+                                Console.Write("\nEnter the amount you would like to withdraw from checking: $ ");
                                 menuSelectStrDbl = Console.ReadLine().ToUpper();
                                 while (double.TryParse(menuSelectStrDbl, out tryParseDbl) == false)
                                 {
@@ -257,8 +258,8 @@ namespace BankAccount
                                 {
                                     Console.Clear();
                                     Console.Write("\n\nYou do not have enough funds in your checking account\n\n");
-                                    Console.Write("\nYour current checking account balance is: " +firstDep.CheckAcctWithdraw());
-                                    Console.Write("\n\n\nPlease select an amount less then: " + firstDep.CheckAcctWithdraw()+ "  : ");
+                                    Console.Write("\nYour current checking account balance is: $ " +firstDep.CheckAcctWithdraw());
+                                    Console.Write("\n\n\nPlease select an amount less then: $ " + firstDep.CheckAcctWithdraw()+ "  : ");
                                     menuSelectStrDbl = Console.ReadLine().ToUpper();
                                     while (double.TryParse(menuSelectStrDbl, out tryParseDbl) == false)
                                     {
@@ -292,7 +293,7 @@ namespace BankAccount
                                 double tryParseDblSav;
                                 double menuSelBalDblSav = 0.00;
                                 Console.Write("\n\t\tAccount withdraw Menu\n\n");
-                                Console.Write("\nEnter the amount you would like to withdraw from savings:  ");
+                                Console.Write("\nEnter the amount you would like to withdraw from savings: $  ");
                                 menuSelectStrDblSav = Console.ReadLine().ToUpper();
                                 while (double.TryParse(menuSelectStrDblSav, out tryParseDblSav) == false)
                                 {
@@ -308,13 +309,15 @@ namespace BankAccount
                                     }
 
                                 }
+                                Console.Clear();
                                 menuSelBalDblSav = double.Parse(menuSelectStrDblSav);
-                                while (menuSelBalDblSav > savingBal)
+                                if (savingBal == 150 || (savingBal - menuSelBalDblSav) <= 149)
                                 {
                                     Console.Clear();
-                                    Console.Write("\n\nYou do not have enough funds in your saving account\n\n");
-                                    Console.Write("\nYour current checking account balance is: " + firstDep.CheckAcctWithdraw());
-                                    Console.Write("\n\n\nPlease select an amount less then: " + firstDep.CheckAcctWithdraw() + "  : ");
+                                    Console.Write("\n\nA withdraw from your saving account in the amount of: ${0} \n\n", menuSelBalDblSav);
+                                    Console.Write("\nwill place your saving account balance below the minimum balance limit of $150.00");
+                                    Console.Write("\nYour current saving account balance is: $" + firstSav.SaveAcctWithdraw());
+                                    Console.Write("\n\n\nPlease select an amount less then or equal to:${0}  :", Math.Abs(150-menuSelBalDblSav));
                                     menuSelectStrDbl = Console.ReadLine().ToUpper();
                                     while (double.TryParse(menuSelectStrDbl, out tryParseDblSav) == false)
                                     {
@@ -352,8 +355,19 @@ namespace BankAccount
                         break;
                     case 5:
                         Console.Clear();
-                        exitProgram = true;
-                        break;
+                        Console.Write("Are you sure you want to exit? Please type Exit to confirm: ");
+                        string confirm = Console.ReadLine().ToUpper();
+                        if (confirm == "EXIT")
+                        {
+                            exitProgram = true;
+                            break;
+                        }else
+                        {
+                            Console.Clear();
+                            continue;
+                        }
+                            
+                        
                     default:
                         Console.Clear();
                         Console.WriteLine("Please enter a number between 1-5");
@@ -363,45 +377,7 @@ namespace BankAccount
         }
         
         //public static void AcctBalanceWindow(int menuSel)
-        //{
-            
-        //    int tempParse;
-        //    int menuSelBalance;
-        //    Console.Write("\n\t\tPlease select 1-2 from the following menu items\n\n");
-        //    Console.Write("\n1. View checking account balance\n");
-        //    Console.Write("\n2. View savings account Balance\n");
-        //    Console.Write("\n3. Return to main menu\n\n");
-        //    String menuSelStr = Console.ReadLine().ToUpper();
-        //    while (int.TryParse(menuSelStr, out tempParse) == false)
-        //    {
-
-        //        Console.Write("Please enter a valid number or quit to exit: ");
-        //        menuSelStr = Console.ReadLine().ToUpper();
-
-        //        ExitMethod(menuSelStr);
-
-        //        if (int.TryParse(menuSelStr, out tempParse) == true)
-        //        {
-        //            menuSelBalance = tempParse;
-        //        }
-        //    }
-        //    menuSelBalance = int.Parse(menuSelStr);
-        //    switch (menuSelBalance)
-        //    {
-        //        case 1:
-                    
-        //            Console.Clear();
-        //            break;
-        //        case 2:
-        //            Console.Clear();
-        //            Console.WriteLine("case two");
-        //            break;
-        //        default:
-        //            Console.Clear();
-        //            break;
-        //    }
-        //    Console.Clear();
-        //}
+        
         public static void ExitMethod(string exitPro)
         {
             if (exitPro == "QUIT")
