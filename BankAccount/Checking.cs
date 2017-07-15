@@ -13,7 +13,7 @@ namespace BankAccount
         protected double withdrawAmount;
        
         public double DepositAmount { get; set; }
-        public double Balance { get; set; }
+        public double CheckingBalance { get; set; }
         public double WithdrawAmount { get; set; }
 
         public Checking()
@@ -24,27 +24,34 @@ namespace BankAccount
         public Checking(double checkBal, double depositAmount, int checkNum, double withdrawAmount)
         {
             this.depositAmount = depositAmount;
-            this.acctBalance = checkBal;
+            this.checkingBalance = checkBal;
             this.checkNum = checkNum;
             this.withdrawAmount = withdrawAmount;
         }
 
         //Methods
-        public override double GetBalance()
+        public override double GetCheckAddDeposit()
         {
-            acctBalance = depositAmount + acctBalance;
-
-            return acctBalance; 
+            checkingBalance = depositAmount + checkingBalance;
+            return checkingBalance;
         }
 
-        public override double AcctWithdraw()
+        public override double CheckAcctWithdraw()
         {
-            acctBalance = acctBalance - withdrawAmount;
-            return acctBalance;
+            checkingBalance = checkingBalance - withdrawAmount;
+            return checkingBalance;
         }
-        public override int GetAcctNumber()
+
+        public  double SetDepositAmt()
+        {           
+            depositAmount = DepositAmount;
+            return depositAmount;
+        }
+
+        public double SetWithdrawAmt()
         {
-            return checkNum;
+            withdrawAmount = WithdrawAmount;
+            return withdrawAmount;
         }
         public override void InformationMenuMethod()
         {
@@ -56,10 +63,9 @@ namespace BankAccount
                 Console.WriteLine("\n\n***************************************************************\n\n");
                 Console.WriteLine("              Checking Account Information");
                 Console.WriteLine("Checking account number:  {0}", checkNum);
-                Console.WriteLine("Checking account balance: {0}", acctBalance);
+                Console.WriteLine("Checking account balance: {0}", checkingBalance);
                 Console.WriteLine("Deposit Amount:           {0}", depositAmount);
-                //Console.WriteLine("Customer Phone:        {0}", custPhone);
-                //Console.WriteLine("Customer Email:        {0}", custEmail);
+                Console.WriteLine("Withdraw Amount:          {0}", withdrawAmount);
                 Console.WriteLine("\n\n***************************************************************\n\n");
 
                 Console.Write("\n\n\n\n\nPlease hit enter to return to the main menu");

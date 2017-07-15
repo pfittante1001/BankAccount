@@ -13,7 +13,7 @@ namespace BankAccount
         protected double withdrawAmount;
 
         public double DepositAmount { get; set; }
-        public double Balance { get; set; }
+        public double SavingBalance { get; set; }
         public double WithdrawAmount { get; set; }
 
         public Saving()
@@ -24,23 +24,23 @@ namespace BankAccount
         public Saving(double saveBal, double depositAmount, int saveNum, double withdrawAmount)
         {
             this.depositAmount = depositAmount;
-            this.acctBalance = saveBal;
+            this.savingBalance = saveBal;
             this.saveNum = saveNum;
             this.withdrawAmount = withdrawAmount;
         }
 
         //Methods
-        public override double GetBalance()
+        public override double GetSaveBalance()
         {
-            acctBalance = depositAmount + acctBalance;
+            savingBalance = depositAmount + savingBalance;
 
-            return acctBalance;
+            return savingBalance;
         }
 
-        public override double AcctWithdraw()
+        public override double SaveAcctWithdraw()
         {
-            acctBalance = acctBalance - withdrawAmount;
-            return acctBalance;
+            savingBalance = savingBalance - withdrawAmount;
+            return savingBalance;
         }
         public override int GetAcctNumber()
         {
@@ -56,7 +56,7 @@ namespace BankAccount
                 Console.WriteLine("\n\n***************************************************************\n\n");
                 Console.WriteLine("              Savings Account Information");
                 Console.WriteLine("Saving account number:  {0}", saveNum);
-                Console.WriteLine("Saving account balance: {0}", acctBalance);
+                Console.WriteLine("Saving account balance: {0}", savingBalance);
                 Console.WriteLine("Deposit Amount:           {0}", depositAmount);
                 //Console.WriteLine("Customer Phone:        {0}", custPhone);
                 //Console.WriteLine("Customer Email:        {0}", custEmail);

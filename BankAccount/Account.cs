@@ -12,8 +12,11 @@ namespace BankAccount
         protected int checkNum;
         protected int saveNum;
         protected string acctType;
-        protected double acctBalance;
+        protected double checkAcctBalance;
+        protected double saveAcctBalance;
         protected int accountNumber;
+        protected double checkDepositAmt;
+        protected double checkSubAmt;
         
 
         //Properties
@@ -21,8 +24,11 @@ namespace BankAccount
         public int CheckNum { get; set; }
         public int SaveNum { get; set; }
         public string AcctType { get; set; }
-        public double AcctBalance { get;  }
+        public double CheckAcctBalance { get; set; }
+        public double SaveAcctBalance { get; set; }
         public int AccountNumber { get; set; }
+        public double CheckDepositAmt { get; set; }
+        public double CheckSubAmt { get; set; }
 
         //Constructors
 
@@ -31,20 +37,36 @@ namespace BankAccount
             //Default Constructor
         }
 
-        public Account(int checkNumConst, int saveNumConst, string acctTypeConst, double acctbal, int accountNumber)
+        public Account(int checkNumConst, int saveNumConst, string acctTypeConst, double saveAcctbal, double checkAcctbal, int accountNumber, double checkDepAmt, double checkSubAmt)
         {
             this.checkNum = checkNumConst;
             this.saveNum = saveNumConst;
             this.acctType = acctTypeConst;
-            this.acctBalance = acctbal;
+            this.checkAcctBalance = checkAcctbal;
+            this.saveAcctBalance = saveAcctbal;
             this.accountNumber = accountNumber;
+            this.checkDepositAmt = checkDepAmt;
+            this.checkSubAmt = checkSubAmt;
         }
 
        //Methods
 
-        public virtual double GetBalance()
+        public virtual double GetCheckAddDeposit()
         {
-            return acctBalance;
+            return checkDepositAmt;
+        }
+
+        public virtual double GetCheckSubWithdraw()
+        {
+            return checkSubAmt;
+        }
+        public virtual double GetCheckBalance()
+        {
+            return checkAcctBalance;
+        }
+        public virtual double GetSaveBalance()
+        {
+            return saveAcctBalance;
         }
 
         public virtual int GetAcctNumber()
@@ -55,10 +77,14 @@ namespace BankAccount
         {
             //not sure what I should have put in here. All the info is in the child
         }
-        public virtual double AcctWithdraw()
+        public virtual double CheckAcctWithdraw()
         {
-            return acctBalance;
+            return checkAcctBalance;
         }
-        
+        public virtual double SaveAcctWithdraw()
+        {
+            return saveAcctBalance;
+        }
+
     }
 }
