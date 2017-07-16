@@ -56,7 +56,9 @@ namespace BankAccount
         }
 
        //Methods
-
+       // Do I really need all these methods? Can I just have a few templates like the information method?
+       //I was thinking of just have generic methods for withdraw deposit balane and overiding them in 
+       //the child classes.
         public virtual double GetCheckAddDeposit()
         {
             return checkDepositAmt;
@@ -83,14 +85,26 @@ namespace BankAccount
             return checkNum;
         }
 
+        public virtual string GetAcctType()
+        {
+            return acctType;
+        }
+
         public virtual int GetsaveAcctNumber()
         {
             return saveNum;
         }
         public virtual void InformationMenuMethod()
         {
-            //not sure what I should have put in here. All the info is in the child
+            Console.WriteLine();
+            Console.WriteLine("\n\n***************************************************************\n\n");
+            Console.WriteLine("              {0} Account Information", acctType);
+            Console.WriteLine("\n\n***************************************************************\n\n");
+
+            Console.Write("\n\n\n\n\nPlease hit enter to return to the main menu");
+
         }
+
         public virtual double CheckAcctWithdraw()
         {
             return checkAcctBalance;

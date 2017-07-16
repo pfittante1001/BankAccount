@@ -15,6 +15,7 @@ namespace BankAccount
         protected string address;
         protected string emailAddress;
         protected string phoneNumber;
+        protected string accountType;
 
         //Properties
 
@@ -23,6 +24,7 @@ namespace BankAccount
         public string Address { get; }
         public string EmailAddress { get; }
         public string PhoneNumber { get; }
+        public string AccountType { get; }
 
 
         //Constructors
@@ -39,7 +41,7 @@ namespace BankAccount
             this.address = addressConst;
             this.emailAddress = emailConst;
             this.phoneNumber = phoneConst;
-        }
+        } 
 
         //methods
         public override string FirstNameMethod()
@@ -71,6 +73,7 @@ namespace BankAccount
             string custPhone = phoneNumber;
             return custPhone;
         }
+
         public override void InformationMenuMethod()
         {
             bool menuReturn = false;

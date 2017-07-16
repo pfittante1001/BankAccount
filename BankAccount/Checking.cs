@@ -8,25 +8,29 @@ namespace BankAccount
 {
     class Checking : Account
     {
+        //Fields
         protected double checkingBalance;
         protected double depositAmount;
         protected double withdrawAmount;
-       
-        public double DepositAmount { get; set; }
-        public double CheckingBalance { get; set; }
-        public double WithdrawAmount { get; set; }
 
+       //Properties
+        public double DepositAmount { get; set; }//left to set because is used for making deposits
+        public double CheckingBalance { get; }
+        public double WithdrawAmount { get; set; }//left to set because is used for making withdraws
+
+        //Constructors
         public Checking()
         {
             //default constructor
         }
 
-        public Checking(double checkBal, double depositAmount, int checkNum, double withdrawAmount)
+        public Checking(double checkBal, double depositAmount, int checkNum, double withdrawAmount, string acctType)
         {
             this.depositAmount = depositAmount;
             this.checkingBalance = checkBal;
-            this.checkNum = checkNum;
+            this.checkNum = checkNum;//value inherited from Account class
             this.withdrawAmount = withdrawAmount;
+            this.acctType = acctType;//value inherited from Account class
         }
 
         //Methods
@@ -61,8 +65,8 @@ namespace BankAccount
             {
                 Console.WriteLine();
                 Console.WriteLine("\n\n***************************************************************\n\n");
-                Console.WriteLine("              Checking Account Information");
-                Console.WriteLine("Checking account number:  ${0}", checkNum);
+                Console.WriteLine("              {0} Account Information", acctType);//value inherited from Account class
+                Console.WriteLine("Checking account number:  ${0}", checkNum);//value inherited from Account class
                 Console.WriteLine("Checking account balance: ${0}", checkingBalance);
                 Console.WriteLine("Last Deposit Amount:      ${0}", depositAmount);
                 Console.WriteLine("Last Withdraw Amount:     ${0}", withdrawAmount);
