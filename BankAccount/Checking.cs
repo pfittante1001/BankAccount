@@ -72,8 +72,8 @@ namespace BankAccount
                 Console.WriteLine();
                 Console.WriteLine("\n\n***************************************************************\n\n");
                 Console.WriteLine("              {0} Account Information", acctType);//value inherited from Account class
-                Console.WriteLine("Checking account number:  ${0}", checkNum);//value inherited from Account class
-                Console.WriteLine("Checking account balance: ${0}", checkAcctBalance);
+                Console.WriteLine("Checking account number:   {0}", checkNum);//value inherited from Account class
+                Console.WriteLine("Checking account balance: ${0}", checkAcctBalance);//value inherited from Account class
                 Console.WriteLine("Last Deposit Amount:      ${0}", depositAmount);
                 Console.WriteLine("Last Withdraw Amount:     ${0}", withdrawAmount);
                 Console.WriteLine("\n\n***************************************************************\n\n");
