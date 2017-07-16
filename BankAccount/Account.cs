@@ -41,14 +41,13 @@ namespace BankAccount
             //Default Constructor
         }
 
-        public Account(int checkNumConst, int saveNumConst, string acctTypeConst, double saveAcctbal, double checkAcctbal, int accountNumber, double checkDepAmt, double checkSubAmt, double saveDepAmt, double saveSubAmt)
+        public Account(int checkNumConst, int saveNumConst, string acctTypeConst, double saveAcctbal, double checkAcctbal, double checkDepAmt, double checkSubAmt, double saveDepAmt, double saveSubAmt)
         {
             this.checkNum = checkNumConst;
             this.saveNum = saveNumConst;
             this.acctType = acctTypeConst;
             this.checkAcctBalance = checkAcctbal;
             this.saveAcctBalance = saveAcctbal;
-            this.accountNumber = accountNumber;
             this.checkDepositAmt = checkDepAmt;
             this.checkSubAmt = checkSubAmt;
             this.saveDepositAmt = saveDepAmt;

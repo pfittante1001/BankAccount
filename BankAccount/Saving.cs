@@ -9,7 +9,7 @@ namespace BankAccount
     class Saving : Account
     {
         //Fields
-        protected double savingBalance;
+        
         protected double savingDepositAmount;
         protected double savingWithdrawAmount;
 
@@ -26,24 +26,24 @@ namespace BankAccount
 
         public Saving(double savBal, double depositAmount, int savNum, double withdrawAmount, string acctType)
         {
-            this.savingDepositAmount = depositAmount;
-            this.savingBalance = savBal;
+            this.saveDepositAmt = depositAmount;
+            this.saveAcctBalance = savBal;
             this.saveNum = savNum;//value taken from Account Class
-            this.savingWithdrawAmount = withdrawAmount;
+            this.saveSubAmt = withdrawAmount;
             this.acctType = acctType;//value taken from Account Class
         }
 
         //Methods
         public override double GetSaveAddDeposit()
         {
-            savingBalance = savingDepositAmount + savingBalance;
-            return savingBalance;
+            saveAcctBalance = savingDepositAmount + saveAcctBalance;
+            return  saveAcctBalance;
         }
 
         public override double SaveAcctWithdraw()
         {
-            savingBalance = savingBalance - SavingWithdrawAmount;
-            return savingBalance;
+            saveAcctBalance =   saveAcctBalance - savingWithdrawAmount;
+            return saveAcctBalance;
         }
 
         public double SetDepositAmt()
@@ -68,7 +68,7 @@ namespace BankAccount
                 Console.WriteLine("\n\n***************************************************************\n\n");
                 Console.WriteLine("              {0} Account Information", acctType);//value inherited from Account class
                 Console.WriteLine("Saving account number:    ${0}", saveNum);//value inherited from Account class
-                Console.WriteLine("Saving account balance:   ${0}", savingBalance);
+                Console.WriteLine("Saving account balance:   ${0}", saveAcctBalance);
                 Console.WriteLine("Last Deposit Amount:      ${0}", savingDepositAmount);
                 Console.WriteLine("Last Withdraw Amount:     ${0}", savingWithdrawAmount);
                 Console.WriteLine("\n\n***************************************************************\n\n");

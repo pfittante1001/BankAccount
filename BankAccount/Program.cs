@@ -123,9 +123,10 @@ namespace BankAccount
             double savingWD = 0;
             double checkingWD = 0;
             bool exitProgram = true;
-
+            
             // Class objects instantiated
             Client client1 = new Client(firstName, lastName, address, emailAddress, phone);
+            Account client01 = new Account(checkNum, saveNum, acctTypeCheck, savingBal, checkBal, checkDep, checkingWD, savingDep, savingWD);
             Checking firstDep = new Checking(checkBal, checkDep, checkNum, checkingWD, acctTypeCheck);
             Saving firstSav = new Saving(savingBal, savingDep, saveNum, savingWD, acctTypeSaveing);
             Access firstAccess = new Access(password, username, exitProgram);
@@ -465,7 +466,6 @@ namespace BankAccount
                                 savingWD = menuSelBalDblSav;
                                 firstSav.SavingWithdrawAmount = savingWD;
                                 firstSav.SetWithdrawAmt();
-                                firstSav.SaveAcctWithdraw();
                                 firstSav.SaveAcctWithdraw();
                                 firstSav.InformationMenuMethod();
 
