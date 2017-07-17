@@ -375,13 +375,18 @@ namespace BankAccount
 
                                 }
                                 menuSelBalDbl = double.Parse(menuSelectStrDbl);
+                                Console.WriteLine(checkBal);
+                                Console.WriteLine(menuSelectStrDbl);
                                 //while loop ensures enough funds in the account to withdraw request funds
-                                while(menuSelBalDbl > checkBal)
+                                while ((firstDep.GetCheckBalance() - menuSelBalDbl) < 0)
                                 {
                                     Console.Clear();
+                                    Console.WriteLine(menuSelectStrDbl);
+                                    Console.WriteLine(checkBal);
+
                                     Console.Write("\n\nYou do not have enough funds in your checking account\n\n");
-                                    Console.Write("\nYour current checking account balance is: $ " +firstDep.CheckAcctWithdraw());
-                                    Console.Write("\n\n\nPlease select an amount less then: $ " + firstDep.CheckAcctWithdraw()+ "  : ");
+                                    Console.Write("\nYour current checking account balance is: $ " +firstDep.GetCheckBalance());
+                                    Console.Write("\n\n\nPlease select an amount less then: $ " + firstDep.GetCheckBalance()+ "  : ");
                                     menuSelectStrDbl = Console.ReadLine().ToUpper();
                                     while (double.TryParse(menuSelectStrDbl, out tryParseDbl) == false)
                                     {
@@ -436,13 +441,18 @@ namespace BankAccount
                                 //account are sufficient and do not exceed the minium balance requirement
 
                                 menuSelBalDblSav = double.Parse(menuSelectStrDblSav);
-                                if (savingBal == 150 || (savingBal - menuSelBalDblSav) <= 150)
+
+                                Console.WriteLine(firstSav.GetSaveBalance());
+                                Console.WriteLine(menuSelBalDblSav);
+
+
+                                while ( (firstSav.GetSaveBalance() - menuSelBalDblSav) <= 150)
                                 {
                                     Console.Clear();
                                     Console.Write("\n\nA withdraw from your saving account in the amount of: ${0} \n\n", menuSelBalDblSav);
                                     Console.Write("\nwill place your saving account balance below the minimum balance limit of $150.00");
-                                    Console.Write("\nYour current saving account balance is: $" + firstSav.SaveAcctWithdraw());
-                                    Console.Write("\n\n\nPlease select an amount less then or equal to:${0}  :", Math.Abs(150-menuSelBalDblSav));
+                                    Console.Write("\nYour current saving account balance is: $" + savingBal);
+                                    Console.Write("\n\n\nPlease select an amount less then or equal to: ${0}  :", Math.Abs(savingBal - 150));
                                     menuSelectStrDbl = Console.ReadLine().ToUpper();
                                     while (double.TryParse(menuSelectStrDbl, out tryParseDblSav) == false)
                                     {

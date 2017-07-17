@@ -34,6 +34,11 @@ namespace BankAccount
         }
 
         //Methods
+
+        public override double GetSaveBalance()
+        {
+            return saveAcctBalance;
+        }
         public override double GetSaveAddDeposit()
         {
             saveAcctBalance = savingDepositAmount + saveAcctBalance;

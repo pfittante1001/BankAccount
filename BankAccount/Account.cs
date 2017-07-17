@@ -71,6 +71,11 @@ namespace BankAccount
         {
             return checkAcctBalance;
         }
+
+        public virtual double GetSaveBalance()
+        {
+            return saveAcctBalance;
+        }
         public virtual double GetSaveAddDeposit()
         {
             return saveAcctBalance;
